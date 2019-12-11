@@ -33,7 +33,7 @@ function setup(){
   createCanvas(windowWidth, windowHeight); 
   player = new Player(); // init obj for player
   loadUpFoes(humanArmy, alienArmy);
-  music.setVolume(.1);
+  music.setVolume(.2);
   music.loop();
   var serialport = require("serialport");
   var SerialPort = serialport.SerialPort;
