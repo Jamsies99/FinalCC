@@ -35,10 +35,11 @@ function setup(){
   loadUpFoes(humanArmy, alienArmy);
   music.setVolume(.2);
   music.loop();
+  /*
   var serialport = require("serialport");
   var SerialPort = serialport.SerialPort;
 
-  var serialPort = new SerialPort("COM3") {
+  var serialPort = new SerialPort("COM3"); 
   baudrate: 9600,
   parser: serialport.parsers.readline("\n")
 });
@@ -48,8 +49,9 @@ serialPort.on("open", function () {
     console.log(data);
   });
 });
+*/
 
- /* serial = new p5.SerialPort(); // make a new instance of the serialport library
+  serial = new p5.SerialPort(); // make a new instance of the serialport library
   serial.on('list', printList); // set a callback function for the serialport list event
   serial.on('connected', serverConnected); // callback for connecting to the server
   serial.on('open', portOpen); // callback for the port opening
@@ -58,7 +60,6 @@ serialPort.on("open", function () {
   serial.on('close', portClose); // callback for the port closing
   serial.list(); // list the serial ports
   serial.open(portName); // open a serial port
-  */
 
 }
 
@@ -103,7 +104,7 @@ function draw(){
 
 
 	//FOR PLAYER INPUT
-	pos = float(map(int(data), 0, 255, 0, windowHeight));
+	pos = float(map(int(inData), 0, 255, 0, windowHeight));
 	player.move(pos);
 
 	// SCOREBOARD
@@ -288,7 +289,7 @@ function portOpen() {
 }
 
 function serialEvent() {
-  data = String(serial.read());
+  inData = String(serial.read());
 }
 
 function serialError(err) {
